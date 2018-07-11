@@ -1,0 +1,28 @@
+<body>
+    <div class="container">
+      <header>
+        <h1>Todo List</h1>
+      </header>
+
+      {{> addpointform}}
+   
+      <ul>
+        {{#each geodata}}
+          {{> geo}}
+        {{/each}}
+      </ul>
+    </div>
+  </body>
+   
+  <template name="geo">
+    <li>{{properties.name}}</li>
+  </template>
+
+  <template name="addpointform">
+    <form>
+        <input name="name" class="name" type="text">
+        <input name="latitude" class="latitude" type="number">
+        <input name="longitude" class="longitude" type="number">
+        <button type="submit">Add Point</button>
+    </form>
+</template>
