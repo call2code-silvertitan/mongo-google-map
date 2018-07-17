@@ -2,14 +2,10 @@
     <div class="container">
       <header>
         <h1>Todo List</h1>
-
-        {{> addpointform}}  
       </header>
 
-      <div>
-          
-      </div>
-      
+      {{> addpointform}}
+   
       <ul>
         {{#each geodata}}
           {{> geo}}
@@ -19,7 +15,7 @@
   </body>
    
   <template name="geo">
-    <li>{{name}}</li>
+    <li>{{properties.name}}</li>
   </template>
 
   <template name="addpointform">
