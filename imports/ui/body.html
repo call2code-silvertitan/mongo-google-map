@@ -1,32 +1,26 @@
 <body>
-    <div class="container">
-      <header>
-        <h1>Todo List</h1>
+  <div class="container">
+    <header>
+      <h1>Todo List ({{incompleteCount}})</h1>
 
-        {{> addpointform}}  
-      </header>
+      <label class="hide-completed">
+        <input type="checkbox" />
+        Hide Completed Tasks
+      </label>
 
-      <div>
-          
-      </div>
-      
-      <ul>
-        {{#each geodata}}
-          {{> geo}}
-        {{/each}}
-      </ul>
-    </div>
-  </body>
-   
-  <template name="geo">
-    <li>{{name}}</li>
-  </template>
+      {{> loginButtons}}
 
-  <template name="addpointform">
-    <form>
-        <input name="name" class="name" type="text">
-        <input name="latitude" class="latitude" type="number">
-        <input name="longitude" class="longitude" type="number">
-        <button type="submit">Add Point</button>
-    </form>
-</template>
+      {{#if currentUser}}
+        <form class="new-task">
+          <input type="text" name="text" placeholder="Type to add new tasks" />
+        </form>
+      {{/if}}
+    </header>
+
+    <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
